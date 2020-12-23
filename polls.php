@@ -11,7 +11,7 @@ $value->question = 'Кто вы?';
 $value->answers = array('Интроверт','Экстраверт','Не знаю');
 $votes[$key] = $value;
 
-if (isset($_COOKIE['polls'])) {
+// if (isset($_COOKIE['polls'])) {
   $arrayPolls = explode(',',$_COOKIE['polls']);
   if (in_array($current, $arrayPolls)) {
     $output = file_get_contents(dirname(__FILE__).'/'.$nameFile);
@@ -20,7 +20,7 @@ if (isset($_COOKIE['polls'])) {
       $votes[$current]->result = $output[$current];
     }
   }
-}
+// }
 
 echo json_encode($votes[$current]);
 
