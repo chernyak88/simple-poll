@@ -49,28 +49,7 @@
           vote['question'] = data['question'];
           vote['answers'] = data['answers'];
 
-          if (data.hasOwnProperty('result')) {
-            $('#vote').parent().parent().find('.question').text(vote['question']);
-            let _answers = vote['answers'];
-            let output = '';
-            let result = data['result'];
-            let totalvotes = 0;
-            for (let i=0; i <= result.length-1; i++) {
-              totalvotes += result[i];
-            }
-            for (let i=0; i <= result.length-1; i++) {
-              output += '<p style="margin:0px;">'+_answers[i]+'</p>'+
-                '<p class="text-right" style="margin:0px;"><b>'+((result[i]/totalvotes)*100).toFixed(1)+'%</b> (Голосов: '+result[i]+')</p>'+
-                '<div class="progress">'+
-                  '<div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="'+(result[i]/totalvotes)*100+'" aria-valuemin="0" aria-valuemax="100" style="width: '+(result[i]/totalvotes)*100+'%">'+
-                    '<span class="sr-only">'+(result[i]/totalvotes)*100+'%</span>'+
-                  '</div>'+
-                '</div>';
-            }
-            $('#vote-section').html(output);
-          } else {          
-            processPoll();
-          }
+          processPoll();
         });    
 
         const processPoll = function() {        

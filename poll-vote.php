@@ -9,13 +9,6 @@ $id = $_POST['id'];
 $answer = $_POST['poll'];
 $count = $_POST['count'];
 
-if (isset($_COOKIE['polls'])) {
-  $arrayPolls = explode(',',$_COOKIE['polls']);
-  if (in_array($id, $arrayPolls)) {
-    exit();
-  }
-}
-
 $result = array();
 
 if (!file_exists($nameFile)) {
